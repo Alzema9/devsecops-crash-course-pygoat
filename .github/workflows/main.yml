@@ -41,16 +41,19 @@ jobs:
     - name: set up docker
       uses: docker-practice/actions-setup-docker@v1
       with:
-        docker_version: '29.2.1'
+        docker_version: '24.0.6'
 
     - name: build docker image
       run: docker build -f Dockerfile -t myapp:latest .
 
     - name: check default daemon json content
       run: |
-        sudo touch /etc/docker/daemon.json
-        sudo cat /etc/docker/daemon.json
-
+        if [ -f /etc/docker/daemon.json ]; then
+          cat /etc/docker/daemon.json
+        else
+          echo "{}" > /tmp/daemon.json
+          cat /tmp/daemon.json
+        fi
 
     - name : Docker scout scan
       run: |
