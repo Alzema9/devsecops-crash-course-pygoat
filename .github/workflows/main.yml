@@ -38,10 +38,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: set up docker
+    - name: Set up Docker
       uses: docker/setup-docker@v3
       with:
-        version: 24.0.6
+        version: 24.0.6   
 
     - name: build docker image
       run: docker build -f Dockerfile -t myapp:latest .
