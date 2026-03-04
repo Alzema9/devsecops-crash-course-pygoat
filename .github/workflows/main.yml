@@ -46,14 +46,6 @@ jobs:
     - name: build docker image
       run: docker build -f Dockerfile -t myapp:latest .
       
-    - name: check default daemon json content
-      run: |
-        if [ -f /etc/docker/daemon.json ]; then
-          cat /etc/docker/daemon.json
-        else
-          echo "{}" > /tmp/daemon.json
-          cat /tmp/daemon.json
-        fi
 
     - name : Docker scout scan
       run: |
