@@ -41,7 +41,7 @@ jobs:
     - name: Set up Docker
       uses: docker/setup-docker-action@v2      
       with:
-        docker-version: '24.0.6'   
+        version: 23.0.1 
 
     - name: build docker image
       run: docker build -f Dockerfile -t myapp:latest .
