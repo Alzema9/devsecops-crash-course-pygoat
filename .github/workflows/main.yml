@@ -41,10 +41,10 @@ jobs:
     - name: set up docker
       uses: docker-practice/actions-setup-docker@v1
       with:
-        docker_version: '24.0.6'
+        docker_version: '29.2.1'
 
     - name: build docker image
-      run: build -f Dockerfile -t myapp:latest .
+      run: docker build -f Dockerfile -t myapp:latest .
 
     - name: check default daemon json content
       run: |
