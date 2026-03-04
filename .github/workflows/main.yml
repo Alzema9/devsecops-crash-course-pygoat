@@ -46,6 +46,11 @@ jobs:
     - name: build docker image
       run: build -f Dockerfile -t myapp:latest .
 
+    - name: check default daemon json content
+      run: |
+        sudo touch /etc/docker/daemon.json
+        sudo cat /etc/docker/daemon.json
+
 
     - name : Docker scout scan
       run: |
